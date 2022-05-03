@@ -17,4 +17,10 @@ class Image extends Model
         Storage::makeDirectory($subFolder);
         return $subFolder;
     }
+
+    public static function getImageDimensions($image)
+    {
+        [$width, $height] = getimagesize(Storage::path($image));
+        return $width . "x" . $height;
+    }
 }
